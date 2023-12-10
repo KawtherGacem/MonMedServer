@@ -1,0 +1,34 @@
+module CRUDApp {
+    struct Malade {
+        long id;
+        string nom;
+        string prenom;
+        long age;
+        string sexe;
+        long numero;
+        string wilaya;
+        long idMedecin;
+    };
+    struct Medecin {
+        long id;
+        string nom;
+        string prenom;
+        string nomUtilisateur;
+        string password;
+        long age;
+        string sexe;
+        string specialite;
+        long numero;
+        string adresseTravail;
+    };
+    interface CRUD {
+        boolean login(in string nomUtilisateur, in string password);
+        boolean signUp(in string nom, in string prenom,in string nomUtilisateur, in string password, in long age,
+        in string sexe, in string specialite,in long numero, in string adresseTravail);
+        Malade read(in long id);
+        void create(in Malade malade);
+        void update(in Malade malade);
+        void delete(in long id);
+    };
+
+};

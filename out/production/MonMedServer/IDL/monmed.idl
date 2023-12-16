@@ -1,34 +1,48 @@
 module CRUDApp {
-    struct Malade {
+    struct Animal {
         long id;
-        string nom;
-        string prenom;
+        string name;
+        string specie;
+        string breed;
         long age;
-        string sexe;
-        long numero;
-        string wilaya;
-        long idMedecin;
+        string gender;
+        string color;
+        string ownerName;
+        string ownerNumber;
+        long idVet;
     };
-    struct Medecin {
+    struct Vet {
         long id;
-        string nom;
-        string prenom;
-        string nomUtilisateur;
+        string name;
+        string surname;
+        string username;
         string password;
         long age;
-        string sexe;
-        string specialite;
-        long numero;
-        string adresseTravail;
+        string gender;
+        string email;
     };
+    struct Visit {
+        long id;
+        string title;
+        string medicalInfo;
+        string date;
+        long idAnimal;
+    };
+
+    typedef sequence<Animal> animals;
+    typedef sequence<Visit> visits;
     interface CRUD {
-        boolean login(in string nomUtilisateur, in string password);
-        boolean signUp(in string nom, in string prenom,in string nomUtilisateur, in string password, in long age,
-        in string sexe, in string specialite,in long numero, in string adresseTravail);
-        Malade read(in long id);
-        void create(in Malade malade);
-        void update(in Malade malade);
-        void delete(in long id);
+        Vet login(in string username, in string password);
+        boolean signUp(in Vet vet);
+        Animal read(in long id);
+        animals getAnimals();
+        long createAnimal(in Animal animal);
+        void updateAnimal(in Animal animal);
+        void deleteAnimal(in long id);
+        visits getVisits(in long id);
+        void createVisit(in Visit visit);
+        void updateVisit(in Visit visit);
+        void deleteVisit(in long id);
     };
 
 };

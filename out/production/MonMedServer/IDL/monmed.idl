@@ -35,7 +35,7 @@ module CRUDApp {
         Vet login(in string username, in string password);
         boolean signUp(in Vet vet);
         Animal read(in long id);
-        animals getAnimals();
+        animals getAnimals(in long id);
         long createAnimal(in Animal animal);
         void updateAnimal(in Animal animal);
         void deleteAnimal(in long id);
